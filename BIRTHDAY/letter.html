@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎂</title>
+    <style>
+        /* --- Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap');
+
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            padding-bottom: 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative; 
+            
+            /* --- BACKGROUND CUTE ADIK AWAK --- */
+            background-image: url('image_b1dcc4.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        h1, h2, .birthday-age {
+            font-family: 'Fredoka One', cursive;
+            color: #fb6f92;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            text-align: center;
+            padding: 30px 20px 15px 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite alternate;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px #fff;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #ff5c8a;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.85);
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- Main Content Container --- */
+        .container {
+            width: 100%;
+            max-width: 600px; 
+            padding: 0 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* --- Wish Box --- */
+        .wish-box {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(3px);
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border: 2px solid #fff;
+            text-align: center;
+        }
+
+        .wish-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 3px dashed #ffb3c6;
+            padding-bottom: 8px;
+            display: inline-block;
+            font-style: italic;
+        }
+
+        .wish-box p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #555;
+            font-weight: 400;
+        }
+
+        /* --- Interactive Button Area --- */
+        .btn-container {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .home-btn {
+            background-color: #fff;
+            color: #fb6f92;
+            border: 3px solid #fb6f92;
+            padding: 12px 50px; 
+            font-size: 1.1rem;
+            font-family: 'Fredoka One', cursive;
+            border-radius: 15px; 
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(251, 111, 146, 0.15);
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .home-btn:hover {
+            background-color: #fb6f92;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(251, 111, 146, 0.3);
+        }
+
+        /* --- EFEK BLING-BLING (BINTANG KEJUTAN) --- */
+        .bling {
+            position: absolute;
+            color: #fff;
+            text-shadow: 0 0 8px #fff, 0 0 15px #ffb3c6;
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: twinkle 2s infinite ease-in-out;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .b1 { top: 15%; left: 8%; animation-delay: 0s; font-size: 1.2rem; }
+        .b2 { top: 25%; right: 10%; animation-delay: 0.5s; font-size: 1.8rem; }
+        .b3 { top: 50%; left: 4%; animation-delay: 1.2s; font-size: 1.5rem; }
+        .b4 { bottom: 20%; right: 6%; animation-delay: 0.3s; font-size: 1.3rem; }
+        .b5 { bottom: 10%; left: 12%; animation-delay: 0.8s; font-size: 2rem; }
+        .b6 { top: 70%; right: 15%; animation-delay: 1.5s; font-size: 1.1rem; }
+
+        /* --- KOD EFEK HUJAN CONFETTI JATUH --- */
+        .rain-confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -20px;
+            z-index: 999;
+            animation: fallAnimation 4s linear infinite;
+            pointer-events: none;
+        }
+
+        /* --- KEYFRAMES ANIMASI --- */
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+            100% { opacity: 0; transform: scale(0.5) rotate(90deg); }
+        }
+
+        /* Animasi labuci jatuh turun ke bawah skrin */
+        @keyframes fallAnimation {
+            0% { 
+                top: -20px; 
+                transform: translateX(0) rotate(0deg); 
+            }
+            100% { 
+                top: 100vh; 
+                transform: translateX(100px) rotate(720deg); 
+            }
+        }
+
+        /* --- AUTO-RESPONSIVE PHONE --- */
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.9rem; }
+            .profile-pic { width: 120px; height: 120px; }
+            .wish-box { padding: 25px 20px; }
+            .wish-box p { font-size: 1.05rem; }
+            .home-btn { padding: 10px 40px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bling b1">✨</div>
+    <div class="bling b2">✨</div>
+    <div class="bling b3">✨</div>
+    <div class="bling b4">✨</div>
+    <div class="bling b5">✨</div>
+    <div class="bling b6">✨</div>
+
+    <header>
+        <img src="HUDA1.jpeg" alt="Huda" class="profile-pic">
+        <h1>Happy Birthday, Huda! 🎉</h1>
+        <p>huda turns 11 !✨</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="wish-box">
+            <h2>Ucapan Khas</h2>
+            <p>"May your day be filled with lots of love, laughter, and your favorite food. Jangan stres-stres, enjoy your special day to the fullest! May all your wishes come true. Happy Birthday! 🎂🎈"</p>
+        </section>
+
+        <div class="btn-container">
+            <button class="home-btn" onclick="prankDanBalikHome()">HOME</button>
+        </div>
+
+    </div>
+
+    <script>
+        // FUNGSI JAVASCRIPT UNTUK CIPTA HUJAN CONFETTI AUTOMATIK
+        function buatHujanConfetti() {
+            const jumlahLabuci = 60; // Awak boleh tambah angka ni kalau nak lagi lebat
+            const warnaWarni = ['#ff5c8a', '#ff758f', '#ff9feb', '#7bdff2', '#b5e2fa', '#fcf6bd', '#d6ccc2'];
+
+            for (let i = 0; i < jumlahLabuci; i++) {
+                let confetti = document.createElement('div');
+                confetti.classList.add('rain-confetti');
+
+                // Set kedudukan mendatar, kelajuan, saiz & warna secara rawak
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.backgroundColor = warnaWarni[Math.floor(Math.random() * warnaWarni.length)];
+                confetti.style.animationDuration = (Math.random() * 2 + 2.5) + 's'; // Jatuh antara 2.5 ke 4.5 saat
+                confetti.style.width = (Math.random() * 6 + 6) + 'px'; // Lebar fail rawak
+                confetti.style.height = (Math.random() * 10 + 6) + 'px'; // Panjang rawak
+                confetti.style.opacity = Math.random() * 0.6 + 0.4;
+                
+                // Bagi bentuk bulat sikit kat sebahagian labuci
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                }
+
+                document.body.appendChild(confetti);
+            }
+        }
+
+        // Jalankan fungsi hujan sejurus sahaja skrin letter.html dibuka
+        window.onload = buatHujanConfetti;
+
+        // Fungsi Butang Prank Home
+        function prankDanBalikHome() {
+            alert("🤪 Huda dah gemok! 😜");
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
