@@ -183,7 +183,6 @@
             100% { opacity: 0; transform: scale(0.5) rotate(90deg); }
         }
 
-        /* Animasi labuci jatuh turun ke bawah skrin */
         @keyframes fallAnimation {
             0% { 
                 top: -20px; 
@@ -207,6 +206,7 @@
 </head>
 <body>
 
+    <!-- Elemen Bintang Bling-Bling -->
     <div class="bling b1">✨</div>
     <div class="bling b2">✨</div>
     <div class="bling b3">✨</div>
@@ -214,6 +214,7 @@
     <div class="bling b5">✨</div>
     <div class="bling b6">✨</div>
 
+    <!-- Header Section -->
     <header>
         <img src="HUDA1.jpeg" alt="Huda" class="profile-pic">
         <h1>Happy Birthday, Huda! 🎉</h1>
@@ -222,11 +223,13 @@
 
     <div class="container">
         
+        <!-- Kotak Ucapan Khas (Dah buang ayat jangan stres) -->
         <section class="wish-box">
             <h2>Ucapan Khas</h2>
-            <p>"May your day be filled with lots of love, laughter, and your favorite food. Jangan stres-stres, enjoy your special day to the fullest! May all your wishes come true. Happy Birthday! 🎂🎈"</p>
+            <p>"May your day be filled with lots of love, laughter, and your favorite food. Enjoy your special day to the fullest! May all your wishes come true. Happy Birthday! 🎂🎈"</p>
         </section>
 
+        <!-- Bahagian Butang HOME -->
         <div class="btn-container">
             <button class="home-btn" onclick="prankDanBalikHome()">HOME</button>
         </div>
@@ -236,22 +239,20 @@
     <script>
         // FUNGSI JAVASCRIPT UNTUK CIPTA HUJAN CONFETTI AUTOMATIK
         function buatHujanConfetti() {
-            const jumlahLabuci = 60; // Awak boleh tambah angka ni kalau nak lagi lebat
+            const jumlahLabuci = 60; 
             const warnaWarni = ['#ff5c8a', '#ff758f', '#ff9feb', '#7bdff2', '#b5e2fa', '#fcf6bd', '#d6ccc2'];
 
             for (let i = 0; i < jumlahLabuci; i++) {
                 let confetti = document.createElement('div');
                 confetti.classList.add('rain-confetti');
 
-                // Set kedudukan mendatar, kelajuan, saiz & warna secara rawak
                 confetti.style.left = Math.random() * window.innerWidth + 'px';
                 confetti.style.backgroundColor = warnaWarni[Math.floor(Math.random() * warnaWarni.length)];
-                confetti.style.animationDuration = (Math.random() * 2 + 2.5) + 's'; // Jatuh antara 2.5 ke 4.5 saat
-                confetti.style.width = (Math.random() * 6 + 6) + 'px'; // Lebar fail rawak
-                confetti.style.height = (Math.random() * 10 + 6) + 'px'; // Panjang rawak
+                confetti.style.animationDuration = (Math.random() * 2 + 2.5) + 's'; 
+                confetti.style.width = (Math.random() * 6 + 6) + 'px'; 
+                confetti.style.height = (Math.random() * 10 + 6) + 'px'; 
                 confetti.style.opacity = Math.random() * 0.6 + 0.4;
                 
-                // Bagi bentuk bulat sikit kat sebahagian labuci
                 if (Math.random() > 0.5) {
                     confetti.style.borderRadius = '50%';
                 }
@@ -260,10 +261,8 @@
             }
         }
 
-        // Jalankan fungsi hujan sejurus sahaja skrin letter.html dibuka
         window.onload = buatHujanConfetti;
 
-        // Fungsi Butang Prank Home
         function prankDanBalikHome() {
             alert("🤪 Huda dah gemok! 😜");
             window.location.href = 'index.html';
